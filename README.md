@@ -37,4 +37,4 @@ See the `Makefile` for the hardware and test targets.
  * [Rocket Chip Generator (including the RISC- tools)](https://github.com/freechipsproject/rocket-chip)
  * [Wildcat RV32I simulator](https://github.com/schoeberl/wildcat)
  * [SPIM system calls](https://www.doc.ic.ac.uk/lab/secondyear/spim/node8.html)
->>>>>>> 064cb8a (Add some pointers to reading material)
+
