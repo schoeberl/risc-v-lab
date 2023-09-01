@@ -10,8 +10,10 @@ See the `Makefile` for the hardware and test targets.
  * The processor shall implement the RISC-V RV32I instruction set.
  * The processor shall be pipelined.
  * The processor shall be able to run a simple program in an FPGA.
- * You can split the memory into instruction and data memory
+ * You are allowed to split the memory into instruction and data memory
    * To avoid the need for caches for a single memory
+ * You do not need to support unaligned memory access
+   * This could be added by an exception and handled in an exception handler
 
 ## TODO and Notes
 
@@ -37,4 +39,9 @@ See the `Makefile` for the hardware and test targets.
  * [Rocket Chip Generator (including the RISC- tools)](https://github.com/freechipsproject/rocket-chip)
  * [Wildcat RV32I simulator](https://github.com/schoeberl/wildcat)
  * [SPIM system calls](https://www.doc.ic.ac.uk/lab/secondyear/spim/node8.html)
+
+## Notes
+
+ * It is easier to have the pipeline registers on the input of a stage
+   * As memory has a register at the input (for register file and to memory stage)
 
