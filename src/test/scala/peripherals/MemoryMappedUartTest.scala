@@ -2,7 +2,7 @@ package peripherals
 
 import chisel3._
 import chiseltest._
-import bus.{BusDriver, MemoryMappedUartDriver}
+import bus.BusDriver
 import org.scalatest.flatspec.AnyFlatSpec
 
 import scala.annotation.tailrec

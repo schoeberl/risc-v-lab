@@ -3,8 +3,6 @@ package bus
 import chisel3._
 import chiseltest._
 
-import bus.Bus
-
 /**
  * Driver for a [[Bus.RespondPort]] for simulation purposes. Provides methods to
  * abstract read and write operations.

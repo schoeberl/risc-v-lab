@@ -3,8 +3,6 @@ package bus
 import chisel3._
 import chiseltest._
 
-import bus.Bus
-
 /**
  * Monitor for a [[Bus.RequestPort]] for simulation purposes. Provides methods to
  * create a responder thread and expect write operations.
