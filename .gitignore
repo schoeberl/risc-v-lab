@@ -1,0 +1,11 @@
+/.sbt
+/.bsp
+/.cache
+/.idea
+/project
+/target
+/test_run_dir
+/generated
+/quartus
+!/quartus/*.qsf
+!/quartus/*.qpf
