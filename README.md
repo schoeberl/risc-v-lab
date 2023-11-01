@@ -1,9 +1,28 @@
-# Design of a RISC-V Microprocessor
+---
+marp: true
+theme: gaia
+_class: lead
+paginate: true
+backgroundColor: #fff
+backgroundImage: url('https://marp.app/assets/hero-background.svg')
+---
 
-This repo is the website for the 3 weeks course at DTU on designing a RISC-V
-microprocessor containing lab material. 
+<!-- headingDivider: 3 -->
+
+# **Design of a RISC-V Microprocessor**
+
+This repo is the website for the 3 weeks course at DTU on
+designing a RISC-V microprocessor, containing lab material. 
 
 See the `Makefile` for the hardware and test targets.
+
+## Welcome
+
+ * Build your **own** RISC-V microprocessor
+ * Run **your** processor in your Basys3 board
+ * This is a new 3 weeks course
+   * You are the test group
+   * Might have some edges
 
 ## Rules
 
@@ -48,4 +67,36 @@ See the `Makefile` for the hardware and test targets.
    * For resource/performance reasons it should be an on-chip memory (SyncReadMem(32, UInt(32.W)))
  * Stalling on a data hazard is a possible option
    * Forwarding has higher performance
+ * Start testing and integration at day 1
+
+## A Possible Work Plan
+
+### Fetching Instructions
+
+ * Start with a simple fetch stage
+ * Use simple assembler tests (from CAE or others given)
+ * Use RV gcc to compile the assembler programs
+ * Read them in the fetch stage into the instruction memory (ROM)
+ * Explore the waveform with GTKWave
+
+### A Simple Start Program
+
+Just implement immediate `addi` and the RR version of the `add`
+instruction and watch it in a waveform.
+
+```asm
+	addi	x1, x0, 0x111
+	addi	x2, x0, 0x222
+# missing forwarding
+	nop
+	nop
+	nop
+	add	x3, x1, x2
+```
+
+You could assemble this manually and hardcode a Chisel `Vec()`.
+
+However, it is easier to use `gcc`
+
+### Decode Stage
 
