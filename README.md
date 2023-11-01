@@ -46,4 +46,6 @@ See the `Makefile` for the hardware and test targets.
    * As memory has a register at the input (for register file and to memory stage)
  * For easier debugging use a Reg for the register file (RegInit(VecInit(Seq.fill(32)(0.U(32.W)))))
    * For resource/performance reasons it should be an on-chip memory (SyncReadMem(32, UInt(32.W)))
+ * Stalling on a data hazard is a possible option
+   * Forwarding has higher performance
 
