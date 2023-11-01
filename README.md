@@ -40,8 +40,10 @@ See the `Makefile` for the hardware and test targets.
  * [Wildcat RV32I simulator](https://github.com/schoeberl/wildcat)
  * [SPIM system calls](https://www.doc.ic.ac.uk/lab/secondyear/spim/node8.html)
 
-## Notes
+## Notes and Hints
 
  * It is easier to have the pipeline registers on the input of a stage
    * As memory has a register at the input (for register file and to memory stage)
+ * For easier debugging use a Reg for the register file (RegInit(VecInit(Seq.fill(32)(0.U(32.W)))))
+   * For resource/performance reasons it should be an on-chip memory (SyncReadMem(32, UInt(32.W)))
 
