@@ -14,6 +14,9 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 This repo is the website for the 3 weeks course at DTU on
 designing a RISC-V microprocessor, containing lab material. 
 
+The course will be in building 324, room 50 and will start on Tuesday 2nd
+of January 2023 at 10:00.
+
 See the `Makefile` for the hardware and test targets.
 
 ## Welcome
@@ -33,13 +36,6 @@ See the `Makefile` for the hardware and test targets.
    * To avoid the need for caches for a single memory
  * You do not need to support unaligned memory access
    * This could be added by an exception and handled in an exception handler
-
-## TODO and Notes
-
- * Talk about testing: self testes and cosimulation
- * Get some testing infrastructure in place
- * Competiton: smallest and fastest implementation
- * Explore myself different pipeline organizations
 
 ## Reading Material
 
@@ -62,7 +58,7 @@ See the `Makefile` for the hardware and test targets.
 ## Notes and Hints
 
  * It is easier to have the pipeline registers on the input of a stage
-   * As memory has a register at the input (for register file and to memory stage)
+   * As memory has a register at the input (for register file and two memory stage)
  * For easier debugging use a Reg for the register file (RegInit(VecInit(Seq.fill(32)(0.U(32.W)))))
    * For resource/performance reasons it should be an on-chip memory (SyncReadMem(32, UInt(32.W)))
  * Stalling on a data hazard is a possible option
@@ -100,3 +96,19 @@ However, it is easier to use `gcc`
 
 ### Decode Stage
 
+### Bootloader
+
+ * The bootloadr is a small program that is loaded into the instruction memory
+ * It can then itself load a program into the instruction and data memory
+ * This avoids resynthesizing the FPGA for each new program
+ * The bootloader can be written in C
+ * It communicates with the host computer via the serial port
+  * You need a program on the host computer to send the program to the bootloader running on your RISC-V processor
+
+
+## TODO and Notes
+
+* Talk about testing: self testes and cosimulation
+* Get some testing infrastructure in place
+* Competiton: smallest and fastest implementation
+* Explore myself different pipeline organizations
