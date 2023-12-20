@@ -1,8 +1,8 @@
-package peripherals
+package lib.peripherals
 
 import chisel3._
 import chiseltest._
-import bus.BusMonitor
+import lib.BusMonitor
 import org.scalatest.flatspec.AnyFlatSpec
 
 import scala.util.Random

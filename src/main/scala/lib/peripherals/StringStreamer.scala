@@ -1,21 +1,21 @@
-package peripherals
+package lib.peripherals
 
 import chisel3._
 import chisel3.util._
 
-import bus.Bus
+import lib.Bus
 
 /**
  * Sends a string over a [[Bus.RequestPort]].
  *
  * The IO is as follows:
- * - [[io.port]]  bus port with 32-bit address
+ * - [[io.port]] requester bus port
  *
  * @param msg string to send
  */
 class StringStreamer(msg: String) extends Module {
   val io = IO(new Bundle {
-    val port = Bus.RequestPort(32.W) // bus port with 32-bit address
+    val port = Bus.RequestPort() // bus port
   })
 
   object State extends ChiselEnum {

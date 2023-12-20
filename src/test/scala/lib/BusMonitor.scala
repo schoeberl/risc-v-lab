@@ -1,4 +1,4 @@
-package bus
+package lib
 
 import chisel3._
 import chiseltest._
@@ -12,10 +12,10 @@ import chiseltest._
 case class BusMonitor(bus: Bus.RequestPort, clock: Clock) {
 
   private def hasWrite =
-    bus.valid.peekBoolean() && bus.op.peek() == Bus.Operation.write
+    bus.write.peekBoolean()
 
   private def hasRead =
-    bus.valid.peekBoolean() && bus.op.peek() == Bus.Operation.read
+    bus.read.peekBoolean()
 
   /** Expect a write operation on the bus. Blocks until a write operation has occurred.
    * @param item expected item

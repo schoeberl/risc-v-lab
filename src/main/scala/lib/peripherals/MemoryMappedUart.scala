@@ -1,11 +1,11 @@
-package peripherals
+package lib.peripherals
 
 import chisel3._
 import chisel3.util._
 
 import chisel.lib.uart._
 
-import bus._
+import lib.Bus
 
 /** A combined UART receiver and transmitter with a memory mapped interface.
   *
@@ -34,7 +34,7 @@ import bus._
   *
   * The IO is as follows:
   * - [[io.pins]]  UART tx and rx pins
-  * - [[io.port]]  bus port with 3-bit address
+  * - [[io.port]]  responder bus port
   *
   * @param freq clock frequency of [[clock]]
   * @param baud baud rate of UART
@@ -52,8 +52,8 @@ class MemoryMappedUart(
     /** UART tx and rx pins */
     val pins = MemoryMappedUart.UartPins()
 
-    /** bus port with 3-bit address */
-    val port = Bus.RespondPort(3.W)
+    /** bus port */
+    val port = Bus.RespondPort()
   })
 
   // UART controllers

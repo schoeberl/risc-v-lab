@@ -1,5 +1,8 @@
 /.sbt
 /.bsp
+/.vscode
+/.metals
+/.bloop
 /.cache
 /.idea
 /project

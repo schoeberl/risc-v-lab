@@ -1,8 +1,8 @@
 import chisel3._
 import chisel3.util._
 
-import peripherals.{MemoryMappedUart, StringStreamer}
-import peripherals.MemoryMappedUart.UartPins
+import lib.peripherals.{MemoryMappedUart, StringStreamer}
+import lib.peripherals.MemoryMappedUart.UartPins
 
 object HelloWorld extends App {
   emitVerilog(

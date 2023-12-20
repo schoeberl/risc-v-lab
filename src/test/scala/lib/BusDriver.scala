@@ -1,4 +1,4 @@
-package bus
+package lib
 
 import chisel3._
 import chiseltest._
@@ -17,8 +17,8 @@ case class BusDriver(port: Bus.RespondPort, clock: Clock) {
    */
   def write(addr: UInt, data: UInt): Unit = {
     timescope {
-      port.valid.poke(1.B)
-      port.op.poke(Bus.Operation.write)
+      port.write.poke(1.B)
+      port.read.poke(0.B)
       port.addr.poke(addr)
       port.wrData.poke(data)
 
@@ -32,8 +32,8 @@ case class BusDriver(port: Bus.RespondPort, clock: Clock) {
    */
   def read(addr: UInt): UInt = {
     timescope {
-      port.valid.poke(1.B)
-      port.op.poke(Bus.Operation.read)
+      port.read.poke(1.B)
+      port.write.poke(0.B)
       port.addr.poke(addr)
 
       clock.step()
