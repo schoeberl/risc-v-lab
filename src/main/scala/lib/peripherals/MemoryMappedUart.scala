@@ -33,8 +33,8 @@ import lib.Bus
   * if the transmitter is ready to accept data.
   *
   * The IO is as follows:
-  * - [[io.pins]]  UART tx and rx pins
   * - [[io.port]]  responder bus port
+  * - [[io.pins]]  UART tx and rx pins
   *
   * @param freq clock frequency of [[clock]]
   * @param baud baud rate of UART
@@ -49,11 +49,12 @@ class MemoryMappedUart(
 ) extends Module {
   val io = IO(new Bundle {
 
+    /** bus port */
+    val port = Bus.RespondPort()
+
     /** UART tx and rx pins */
     val pins = MemoryMappedUart.UartPins()
 
-    /** bus port */
-    val port = Bus.RespondPort()
   })
 
   // UART controllers
