@@ -9,7 +9,9 @@ import scala.util.Random
 
 class StringStreamerTest extends AnyFlatSpec with ChiselScalatestTester {
 
-  "StringStreamer" should "send a string" in {
+  behavior of "String streamer"
+
+  it should "send a string" in {
 
     val message = // create message string
       Seq.fill(1000)(Random.nextPrintableChar()).mkString

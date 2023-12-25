@@ -10,7 +10,9 @@ import scala.util.Random
 
 class MemoryMappedUartTest extends AnyFlatSpec with ChiselScalatestTester {
 
-  "MemoryMappedUart" should "send and receive data" in {
+  behavior of "Memory-mapped Uart"
+
+  it should "send and receive data" in {
     test(new MemoryMappedUart(10000, 3000, 2, 2)) { dut =>
       val messageLength = 500
 

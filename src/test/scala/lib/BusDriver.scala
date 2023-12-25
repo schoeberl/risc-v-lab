@@ -41,5 +41,22 @@ case class BusDriver(port: Bus.RespondPort, clock: Clock) {
 
     port.rdData.peek()
   }
+
+  /** Drive a read operation on the bus and expect value.
+   * @param addr address
+   * @param value expected value
+   * @return data read from the bus
+   */
+  def expect(addr: UInt, value: UInt): Unit = {
+    timescope {
+      port.read.poke(1.B)
+      port.write.poke(0.B)
+      port.addr.poke(addr)
+
+      clock.step()
+    }
+
+    port.rdData.expect(value)
+  }
 }
 
