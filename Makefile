@@ -4,6 +4,7 @@ doit:
 
 # Run the test
 test:
+	$(MAKE) -C tests
 	sbt test
 
 slides:
@@ -11,5 +12,6 @@ slides:
 	open README.pdf
 
 clean:
+	@rm -rf build generated
 	git clean -fd
 
