@@ -112,3 +112,50 @@ However, it is easier to use `gcc`
 * Get some testing infrastructure in place
 * Competiton: smallest and fastest implementation
 * Explore myself different pipeline organizations
+
+# Peripherals
+
+- Two basic memory mapped peripherals are provided
+  - UART transceiver
+  - LED controller
+- The peripherals are attached to a simple bus
+
+## System Bus
+
+|name|width|description|
+|----|-----|-----------|
+|`read`|1|signal a read operation|
+|`write`|1|signal a write operation|
+|`addr`|32|address for read or write|
+|`wrData`|32|data to write|
+|`rdData`|32|result of read (valid one cycle after `read` is asserted)|
+
+Use `Bus.RequestPort()` and `Bus.ResponsePort()` to create IO.
+
+## LED Controller - Register Map
+
+| address | read                           | write                           |
+|---------|--------------------------------|---------------------------------|
+| 0x00    | read n-bit LED status          | set n-bit LED status            |
+
+- Has only one memory-mapped register with one bit per LED
+
+## UART - Register Map
+
+
+| address | read                           | write                           |
+|---------|--------------------------------|---------------------------------|
+| 0x00    | read received data from buffer | write data to send into buffer  |
+| 0x04    | read UART status (bit 0: tx ready and bit 1: rx has data) | -    |
+
+
+- Reading from address 0x00 will remove a character from the receive buffer. If the buffer is empty, no valid data is returned. 
+- Writing to address 0x00 will add a character to the transmit buffer. If the buffer is full, the character will be dropped. 
+
+
+## Connecting Peripherals
+
+- Requests have to be sent to the appropriate peripheral or memory based on the address
+- Each device has its own address range, e.g. a multiple of 1kB and the upper 22 bits are used to select the device
+- Only the `read` and `write` signals of the appropriate device are asserted
+- The routing decision has to be remembered to select the correct response
