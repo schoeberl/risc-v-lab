@@ -153,9 +153,22 @@ Use `Bus.RequestPort()` and `Bus.ResponsePort()` to create IO.
 - Writing to address 0x00 will add a character to the transmit buffer. If the buffer is full, the character will be dropped. 
 
 
-## Connecting Peripherals
+## Connecting multiple Peripherals
 
 - Requests have to be sent to the appropriate peripheral or memory based on the address
-- Each device has its own address range, e.g. a multiple of 1kB and the upper 22 bits are used to select the device
+- Each device has its own address range, e.g. a multiple of 1kB and in this case the upper 22 bits are used to select the device
 - Only the `read` and `write` signals of the appropriate device are asserted
 - The routing decision has to be remembered to select the correct response
+
+
+## Using elf executables
+
+- Use the `lib.Executable` class to load an elf file and extract sections and the entry address
+
+```scala
+val exe = Executable.from("path/to/myElf.out")
+val text = exe.getSection(".text")
+text.getWords // returns a Seq[Long] of instructions
+text.start // start address of the section
+exe.getEntryPoint // returns the start PC of the program
+```
