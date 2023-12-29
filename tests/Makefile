@@ -1,6 +1,6 @@
 OUTDIR?=../build
 
-CC=riscv64-linux-gnu
+CC?=riscv32-unknown-elf
 
 all: riscv-tests simple
 

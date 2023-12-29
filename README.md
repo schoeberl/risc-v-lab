@@ -113,6 +113,41 @@ However, it is easier to use `gcc`
 * Competiton: smallest and fastest implementation
 * Explore myself different pipeline organizations
 
+# Testing
+
+- Two collections of test programs are provided
+  - `tests/simple` contains some basic test cases for all RV32I instructions
+  - `tests/riscv-tests` contains thorough tests for all RV32I instructions from the official [riscv-tests](https://github.com/riscv-software-src/riscv-tests) repository
+  - The test programs exit via the `ecall` instruction
+  - All tests come with a `.res` file containing a dump of the register file after the program has finished
+
+## Building the Tests
+
+- Elf files and flat binaries are built before `sbt test` when running `make test`
+- The output files are placed in the `build/simple` and `build/riscv-tests` directories
+- Set the `CC` variable to your RISC-V GCC compiler in the [Makefile](Makefile?plain=1#L7)
+
+## riscv-tests
+
+- the `riscv-tests` are self tests which check results inside the test code
+  - the test returns 0 in register `a7` if the test was successful
+  - else the failing tests number is placed in `a7`
+  - the self testing functionality relies on compare and branch instructions
+
+## riscv-tests - Execution Traces - I
+
+- Each riscv-test programs also comes with a `.csv` file containing an execution trace
+- One line contains the following information:
+  - `pc;instr_word;assembly;wb_dest;wb_value;mem_addr;mem_wr_data\n`
+  - If no write back, load or store occurs, the corresponding fields are left empty
+- Example: this load instruction sets x14 to 0xF00F by loading a halfword from address 0x80001006
+  - `800000f8;60d703;lhu a4, 6(ra);14;f00f;80001006;\n`
+
+## riscv-tests - Execution Traces - II
+
+- The execution traces can be used to check the correct execution of the programs step by step, like in a co-simulation
+- Attention has to be given to stalls in your pipeline, since the trace was executed on a single-cycle processor
+
 # Peripherals
 
 - Two basic memory mapped peripherals are provided
@@ -122,13 +157,13 @@ However, it is easier to use `gcc`
 
 ## System Bus
 
-|name|width|description|
-|----|-----|-----------|
-|`read`|1|signal a read operation|
-|`write`|1|signal a write operation|
-|`addr`|32|address for read or write|
-|`wrData`|32|data to write|
-|`rdData`|32|result of read (valid one cycle after `read` is asserted)|
+| name    | width | description                                            |
+|---------|-------|--------------------------------------------------------|
+| `read`  | 1     | signal a read operation                                |
+| `write` | 1     | signal a write operation                               |
+| `addr`  | 32    | address for read or write                              |
+| `wrData`| 32    | data to write                                          |
+| `rdData`| 32    | result of read (valid one cycle after `read` is asserted) |
 
 Use `Bus.RequestPort()` and `Bus.ResponsePort()` to create IO.
 
@@ -138,7 +173,7 @@ Use `Bus.RequestPort()` and `Bus.ResponsePort()` to create IO.
 |---------|--------------------------------|---------------------------------|
 | 0x00    | read n-bit LED status          | set n-bit LED status            |
 
-- Has only one memory-mapped register with one bit per LED
+- Has only a single memory-mapped register with one bit per LED
 
 ## UART - Register Map
 
@@ -172,3 +207,4 @@ text.getWords // returns a Seq[Long] of instructions
 text.start // start address of the section
 exe.getEntryPoint // returns the start PC of the program
 ```
+
