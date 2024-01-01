@@ -14,8 +14,8 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 This repo is the website for the 3 weeks course at DTU on
 designing a RISC-V microprocessor, containing lab material. 
 
-The course will be in building 116, room 042 and will start on Tuesday 2nd
-of January 2023 at 10:00.
+The course will be in building 116, room 042 and will start on
+Tuesday 2nd of January 2023 at 10:00.
 
 See the `Makefile` for the hardware and test targets.
 
@@ -25,7 +25,7 @@ See the `Makefile` for the hardware and test targets.
  * Run **your** processor in your Basys3 board
  * This is a new 3 weeks course
    * You are the test group
-   * Might have some edges
+   * Might have some rough edges
 
 ## Rules
 
