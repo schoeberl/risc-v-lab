@@ -24,8 +24,7 @@ See the `Makefile` for the hardware and test targets.
  * Build your **own** RISC-V microprocessor
  * Run **your** processor in your Basys3 board
  * This is a new 3 weeks course
-   * You are the test group
-   * Might have some rough edges
+ * I am exciting to see you building a RISC-V processor
 
 ## Rules
 
@@ -36,6 +35,14 @@ See the `Makefile` for the hardware and test targets.
    * To avoid the need for caches for a single memory
  * You do not need to support unaligned memory access
    * This could be added by an exception and handled in an exception handler
+
+## Warning
+
+ * This is a new course
+ * There might be some rough edges
+ * You are the test group
+ * I will try to fix problems as fast as possible
+ * I will add more material as we go along
 
 ## Reading Material
 
@@ -58,7 +65,7 @@ See the `Makefile` for the hardware and test targets.
 ## Notes and Hints
 
  * It is easier to have the pipeline registers on the input of a stage
-   * As memory has a register at the input (for register file and two memory stage)
+   * As memory has a register at the input (for register file and the memory stage)
  * For easier debugging use a Reg for the register file (RegInit(VecInit(Seq.fill(32)(0.U(32.W)))))
    * For resource/performance reasons it should be an on-chip memory (SyncReadMem(32, UInt(32.W)))
  * Stalling on a data hazard is a possible option
@@ -96,9 +103,33 @@ However, it is easier to use `gcc`
 
 ### Decode Stage
 
+ * Add the decode stage
+ * Extract the opcode and the register numbers
+ * Use a `switch` to decode the instruction
+ * Add the register file
+ * Write some tests
+
+### Execute Stage
+
+ * Add the execute stage
+ * Implement the `addi` instruction
+ * Write some tests
+ * Continue with the ALU
+
+### Memory Stage
+
+  * Add the memory stage
+  * Implement the `lw` and `sw` instructions
+  * Write some tests
+
+### Writeback stage
+
+ * Do we need a writeback stage?
+ * Let us discuss pipeline variations (now)
+
 ### Bootloader
 
- * The bootloadr is a small program that is loaded into the instruction memory
+ * The bootloader is a small program that is loaded into the instruction memory
  * It can then itself load a program into the instruction and data memory
  * This avoids resynthesizing the FPGA for each new program
  * The bootloader can be written in C
