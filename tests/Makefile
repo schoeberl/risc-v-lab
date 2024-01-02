@@ -1,6 +1,6 @@
-OUTDIR?=../build
+OUTDIR=../build
 
-CC?=riscv32-unknown-elf
+CC=riscv64-unknown-elf
 
 all: riscv-tests simple
 

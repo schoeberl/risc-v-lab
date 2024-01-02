@@ -4,7 +4,7 @@ doit:
 
 # Run the test
 test:
-	$(MAKE) CC=riscv32-unknown-elf -C tests
+	$(MAKE) CC=riscv64-unknown-elf -C tests
 	sbt test
 
 slides:

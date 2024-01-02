@@ -1,4 +1,4 @@
-OUTDIR?=.
+OUTDIR=.
 
 ASRCS:=$(wildcard *.s)
 CSRCS:=$(wildcard *.c)
@@ -6,7 +6,7 @@ AOBJ:=$(ASRCS:%.s=$(OUTDIR)/%.out)
 COBJ:=$(CSRCS:%.c=$(OUTDIR)/%.out)
 BINS:=$(AOBJ:%.out=%.bin) $(COBJ:%.out=%.bin)
 
-CC?=riscv32-unknown-elf
+CC=riscv64-unknown-elf
 
 all: ${AOBJ} ${COBJ} ${BINS}
 
