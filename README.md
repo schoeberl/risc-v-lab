@@ -81,9 +81,15 @@ See the `Makefile` for the hardware and test targets.
 
 ## Organisation
 
- * We will meet inf first week every day at 10:00
- * Status presentation on Friday
+ * We will meet in the first week every day at 10:00
+   * **except this Friday:** at 13:00
+ * Status presentation on Friday (13:00)
+   * Each group presents
    * Two slides
+ * I am online available during the week (email, slack, zoom)
+ * Exam is presentation on last Friday
+   * Plus show me your code
+   * No report needed
 
 ## A Possible Work Plan
 
@@ -91,14 +97,25 @@ See the `Makefile` for the hardware and test targets.
 
  * Start with a simple fetch stage
  * Use simple assembler tests (from CAE or others given)
- * Use RV gcc to compile the assembler programs
+ * Use RV gcc (or Venus) to compile the assembler programs
  * Read them in the fetch stage into the instruction memory (ROM)
  * Explore the waveform with GTKWave
 
-### A Simple Start Program
+### Start with a Single Instruction
 
-Just implement immediate `addi` and the RR version of the `add`
-instruction and watch it in a waveform.
+  * Implement a single instruction
+  * Start with `addi`
+  ```asm
+	addi	x1, x0, 0x111
+  ```
+  * Assembles to `0x12300093`
+  * Hardcode that instruction in the fetch stage
+  * Watch the instruction through the pipeline
+  * Write a test
+
+### A Simple Initial Program
+
+Add the RR version of the `add` instruction and watch it in a waveform.
 
 ```asm
 	addi	x1, x0, 0x111
@@ -160,7 +177,7 @@ instruction and watch it in a waveform.
 * Competiton: smallest and fastest implementation
 * Explore myself different pipeline organizations
 
-# Testing
+## Testing
 
 - Two collections of test programs are provided
   - `tests/simple` contains some basic test cases for all RV32I instructions
@@ -168,20 +185,20 @@ instruction and watch it in a waveform.
   - The test programs exit via the `ecall` instruction
   - All tests come with a `.res` file containing a dump of the register file after the program has finished
 
-## Building the Tests
+### Building the Tests
 
 - Elf files and flat binaries are built before `sbt test` when running `make test`
 - The output files are placed in the `build/simple` and `build/riscv-tests` directories
 - Set the `CC` variable to your RISC-V GCC compiler in the [Makefile](Makefile?plain=1#L7)
 
-## riscv-tests
+### riscv-tests
 
 - the `riscv-tests` are self tests which check results inside the test code
   - the test returns 0 in register `a7` if the test was successful
   - else the failing tests number is placed in `a7`
   - the self testing functionality relies on compare and branch instructions
 
-## riscv-tests - Execution Traces - I
+### riscv-tests - Execution Traces - I
 
 - Each riscv-test programs also comes with a `.csv` file containing an execution trace
 - One line contains the following information:
@@ -190,19 +207,19 @@ instruction and watch it in a waveform.
 - Example: this load instruction sets x14 to 0xF00F by loading a halfword from address 0x80001006
   - `800000f8;60d703;lhu a4, 6(ra);14;f00f;80001006;\n`
 
-## riscv-tests - Execution Traces - II
+### riscv-tests - Execution Traces - II
 
 - The execution traces can be used to check the correct execution of the programs step by step, like in a co-simulation
 - Attention has to be given to stalls in your pipeline, since the trace was executed on a single-cycle processor
 
-# Peripherals
+## Peripherals
 
 - Two basic memory mapped peripherals are provided
   - UART transceiver
   - LED controller
 - The peripherals are attached to a simple bus
 
-## System Bus
+### System Bus
 
 | name    | width | description                                            |
 |---------|-------|--------------------------------------------------------|
@@ -214,7 +231,7 @@ instruction and watch it in a waveform.
 
 Use `Bus.RequestPort()` and `Bus.ResponsePort()` to create IO.
 
-## LED Controller - Register Map
+### LED Controller - Register Map
 
 | address | read                           | write                           |
 |---------|--------------------------------|---------------------------------|
@@ -222,7 +239,7 @@ Use `Bus.RequestPort()` and `Bus.ResponsePort()` to create IO.
 
 - Has only a single memory-mapped register with one bit per LED
 
-## UART - Register Map
+### UART - Register Map
 
 
 | address | read                           | write                           |
@@ -243,7 +260,7 @@ Use `Bus.RequestPort()` and `Bus.ResponsePort()` to create IO.
 - The routing decision has to be remembered to select the correct response
 
 
-## Using elf executables
+## Using elf Executables
 
 - Use the `lib.Executable` class to load an elf file and extract sections and the entry address
 
