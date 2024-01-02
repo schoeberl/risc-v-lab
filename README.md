@@ -87,11 +87,31 @@ See the `Makefile` for the hardware and test targets.
    * Each group presents
    * Two slides
  * I am online available during the week (email, slack, zoom)
- * Exam is presentation on last Friday
-   * Plus show me your code
-   * No report needed
+   * Can we agree on a Slack channel?
+
+## Exam
+
+ * Presentation of your processor
+   * On last Friday
+   * A few slides
+   * Demo in FPGA board
+ * Show me your code
+ * No report needed
+
+## Competition
+
+ * Shall we have a competition?
+   * The fastest implementation
+   * The smallest implementation
+   * We need to agree on a benchmark
 
 ## A Possible Work Plan
+
+ * Imlplement the minum viable product (MVP) first
+   * A single instruction
+   * MVP of all pipeline stages
+ * Write a test
+ * Continue adding instructions  
 
 ### Fetching Instructions
 
@@ -106,7 +126,7 @@ See the `Makefile` for the hardware and test targets.
   * Implement a single instruction
   * Start with `addi`
   ```asm
-	addi	x1, x0, 0x111
+	addi	x1, x0, 0x123
   ```
   * Assembles to `0x12300093`
   * Hardcode that instruction in the fetch stage
@@ -172,15 +192,15 @@ Add the RR version of the `add` instruction and watch it in a waveform.
 
 ## TODO and Notes
 
-* Talk about testing: self testes and cosimulation
-* Get some testing infrastructure in place
-* Competiton: smallest and fastest implementation
-* Explore myself different pipeline organizations
+ * Talk about testing: self testes and cosimulation
+ * Competiton: smallest and fastest implementation
+ * Explore myself different pipeline organizations
 
 ## Testing
 
 - Two collections of test programs are provided
   - `tests/simple` contains some basic test cases for all RV32I instructions
+    - The ones from the CAE course
   - `tests/riscv-tests` contains thorough tests for all RV32I instructions from the official [riscv-tests](https://github.com/riscv-software-src/riscv-tests) repository
   - The test programs exit via the `ecall` instruction
   - All tests come with a `.res` file containing a dump of the register file after the program has finished
