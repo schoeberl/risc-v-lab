@@ -87,8 +87,10 @@ See the `Makefile` for the hardware and test targets.
  * Status presentation on Friday (13:00)
    * Each group presents
    * Two slides
+   * Send me a link to your repo latest Thursday evening
  * I am online available during the week (email, slack, zoom)
    * Can we agree on a Slack channel?
+   * DE2 from last year?
 
 ## Exam
 
@@ -136,7 +138,8 @@ See the `Makefile` for the hardware and test targets.
 
 ### A Simple Initial Program
 
-Add the RR version of the `add` instruction and watch it in a waveform.
+* Add the RR version of the `add` instruction and a `nop` instruction.
+* Watch it in a waveform.
 
 ```asm
 	addi	x1, x0, 0x111
@@ -181,7 +184,14 @@ Add the RR version of the `add` instruction and watch it in a waveform.
  * Do we need a writeback stage?
  * Let us discuss pipeline variations (now)
 
-### Bootloader
+## Summary
+
+ * Do small steps and test
+ * Run an instruction through the pipeline
+ * That's it for today from my side
+ * Questions?
+
+## Bootloader
 
  * The bootloader is a small program that is loaded into the instruction memory
  * It can then itself load a program into the instruction and data memory
