@@ -19,5 +19,7 @@ $(OUTDIR)/%.out: %.s
 $(OUTDIR)/%.bin: $(OUTDIR)/%.out
 	$(CC)-objcopy -O binary $< $@
 
+dump: ${AOBJ} ${COBJ}
+	$(CC)-objdump -d $(AOBJ) $(COBJ)
 clean:
 	@rm $(OUTDIR)/*.bin $(OUTDIR)/*.out

@@ -61,6 +61,7 @@ See the `Makefile` for the hardware and test targets.
  * The lab material for the CAE course at DTU: [02155 Computer Architecture and Engineering Lab](https://github.com/schoeberl/cae-lab)
  * [The RISC-V Instruction Set Manual](https://riscv.org/specifications/)
  * [Venus RV32I simulator](https://kvakil.github.io/venus/)
+ * [RIPES RISC-V simulator](https://github.com/mortbopet/Ripes)
  * [RISC-V Green Card](https://inst.eecs.berkeley.edu/~cs61c/fa17/img/riscvcard.pdf)
  * [RISC-V Tools (GNU Toolchain, ISA Simulator, Tests)](https://github.com/riscv/riscv-tools)
  * [Rocket Chip Generator (including the RISC- tools)](https://github.com/freechipsproject/rocket-chip)
@@ -147,7 +148,7 @@ Add the RR version of the `add` instruction and watch it in a waveform.
 	add	x3, x1, x2
 ```
 
-### Assemble that code
+### Assemble that Program
 
  * You could assemble this manually and hardcode a Chisel `Vec()`.
  * You can also use Venus to assemble the program
