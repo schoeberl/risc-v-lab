@@ -26,11 +26,16 @@ See the `Makefile` for the hardware and test targets.
  * This is a new 3 weeks course
  * I am exciting to see you building a RISC-V processor
 
+## Introduction Round
+
+ * Who are you?
+ * Why this course?
+
 ## Rules
 
- * The processor shall implement the RISC-V RV32I instruction set.
- * The processor shall be pipelined.
- * The processor shall be able to run a simple program in an FPGA.
+ * The processor shall implement the RISC-V RV32I instruction set
+ * The processor shall be pipelined
+ * The processor shall be able to run a simple program in an FPGA
  * You are allowed to split the memory into instruction and data memory
    * To avoid the need for caches for a single memory
  * You do not need to support unaligned memory access
@@ -59,8 +64,6 @@ See the `Makefile` for the hardware and test targets.
  * [RISC-V Green Card](https://inst.eecs.berkeley.edu/~cs61c/fa17/img/riscvcard.pdf)
  * [RISC-V Tools (GNU Toolchain, ISA Simulator, Tests)](https://github.com/riscv/riscv-tools)
  * [Rocket Chip Generator (including the RISC- tools)](https://github.com/freechipsproject/rocket-chip)
- * [Wildcat RV32I simulator](https://github.com/schoeberl/wildcat)
- * [SPIM system calls](https://www.doc.ic.ac.uk/lab/secondyear/spim/node8.html)
 
 ## Notes and Hints
 
@@ -71,6 +74,16 @@ See the `Makefile` for the hardware and test targets.
  * Stalling on a data hazard is a possible option
    * Forwarding has higher performance
  * Start testing and integration at day 1
+
+### Pipeline Repetition
+
+ * See CAE slides
+
+## Organisation
+
+ * We will meet inf first week every day at 10:00
+ * Status presentation on Friday
+   * Two slides
 
 ## A Possible Work Plan
 
@@ -97,9 +110,12 @@ instruction and watch it in a waveform.
 	add	x3, x1, x2
 ```
 
-You could assemble this manually and hardcode a Chisel `Vec()`.
+### Assemble that code
 
-However, it is easier to use `gcc`
+ * You could assemble this manually and hardcode a Chisel `Vec()`.
+ * You can also use Venus to assemble the program
+ * Show it live
+ * However, it is easier to use `gcc`
 
 ### Decode Stage
 
