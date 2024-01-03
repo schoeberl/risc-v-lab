@@ -97,10 +97,11 @@ See the `Makefile` for the hardware and test targets.
  * Presentation of your processor
    * On last Friday
    * A few slides
-   * Demo in FPGA board
+   * Demo in your FPGA board
  * Show me your code
  * No report needed
-   * Just one with names, title, abstract, and a link to your repo
+   * Just one page with names, title, abstract, and a link to your repo
+   * Maybe your processsor has a name?
 
 ## Competition
 
@@ -157,7 +158,7 @@ See the `Makefile` for the hardware and test targets.
  * You could assemble this manually and hardcode a Chisel `Vec()`.
  * You can also use Venus to assemble the program
  * Show it live
- * However, it is easier to use `gcc`
+ * However, it is easier to use `gcc` (or `as`)
 
 ### Decode Stage
 
@@ -192,23 +193,111 @@ See the `Makefile` for the hardware and test targets.
  * That's it for today from my side
  * Questions?
 
-## Bootloader
+## Status Update
 
- * The bootloader is a small program that is loaded into the instruction memory
- * It can then itself load a program into the instruction and data memory
- * This avoids resynthesizing the FPGA for each new program
- * The bootloader can be written in C
- * It communicates with the host computer via the serial port
-  * You need a program on the host computer to send the program to the bootloader running on your RISC-V processor
+ * How is your `addi` instruction going?
+ * How many stages have you planned?
+ * How many stages have you implemented (even as fake stage)?
+ * Did you aim for the minum viable product (MVP)?
 
+## When to Start with Your FPGA Board?
 
-## TODO and Notes
+ * Blinking LED is the embedded version of "Hello World"
+   * If you can blink an LED, you can do everything
+ * You need `bge` and `sw` for that, besides `addi` and `nop`
+   * **That's it**
+   * Can you write the code for this?
+ * I showed once a blinking LED at the first review meeting of an EU project!
+ * Aim for a blinking LED this week
 
- * Talk about testing: self testes and cosimulation
- * Competiton: smallest and fastest implementation
- * Explore myself different pipeline organizations
+## Debugging
 
-## Testing I
+ * During development to get stuff right
+ * OK, to start with, but move on to real testing
+ * Use the waveform viewer
+ * Use `printf` in Chisel
+ * *Watch* instructions through the pipeline
+
+## Testing
+
+ * Helps debugging during development, but is more
+ * You can create a test suit that is run on evey code change
+   * You can be more confident when you change stuff
+     * Introduced bugs will (hopefully) be caught by the tests
+   * More relaxed in doing refactoring
+     * Remeber agile development  
+   * Regression testing
+   * GitHub CI on commit
+     * Shall I show it?
+
+## What to Test?
+
+ * Individual components, such as:
+   * ALU
+   * Decode
+   * Instruction fetch
+ * Maybe?
+   * Too much work?
+   * Is it worth to test the addition in an ALU?
+     * If you write '+' it will probabaly do an addition
+
+## Testing a Processor
+
+ * It is easier than unit testing
+   * You *just* execute programs and check if they work
+ * Is better than unit testing
+    * You test the whole system
+    * You test the interaction of the components
+ * Two options:
+   * Self testing programs
+   * Cosimulation
+
+## Self Testing Programs
+
+ * Write your test programs with a known result
+ * E.g., agree that all your tests will signal a pass with 0 in x1
+ * You can check this in the simulation
+   * With your ChiselTest or VHDL benchmark
+* You can build up a collection of tests
+  * Do some yourself
+  * Use others (provided) later
+
+## Example
+
+ * We test the `add` and `addi` instructions
+
+```
+addi x1, x0, 0x123
+addi x2, x0, 0x111
+addi x3, x0, 0x222
+add x1, x2, x3
+addi x1, x1, -0x333
+```
+
+ * Shall finish with `0` in x1
+ * Write your tests in Venus and *test the tests* on Venus
+
+## Available Tests
+
+ * From riscv-tests
+ * From Ripes
+   * Both use ecall to signal a result
+ * From CAE
+   * You know them
+   * No siganlling of a result
+   * You have a file with expected results in registers
+
+## Cosimulation
+
+ * You can run the same program on your processor and on a simulator
+   * Simultor is called the golden model
+   * Use your simulator from CAE :-)
+ * Compare the results
+ * You can use the execution trace to compare the results
+ * Or run it in lockstep
+ * Or use the traces Tjark provided
+
+## Given Tests
 
 - Three collections of test programs are provided
   - `tests/simple` contains some basic test cases for all RV32I instructions
@@ -216,7 +305,7 @@ See the `Makefile` for the hardware and test targets.
   - `tests/ripes` contains some longer self-tests for most RV32I instructions
   - `tests/riscv-tests` contains thorough self-tests for all RV32I instructions from the official [riscv-tests](https://github.com/riscv-software-src/riscv-tests) repository
   
-## Testing II
+## Given Tests - II
 
   - The test programs exit via the `ecall` instruction
   - `simple` and `riscv-tests` tests come with a `.res` file containing a dump of the register file after the program has finished
@@ -254,11 +343,21 @@ See the `Makefile` for the hardware and test targets.
 - The execution traces can be used to check the correct execution of the programs step by step, like in a co-simulation
 - Attention has to be given to stalls in your pipeline, since the trace was executed on a single-cycle processor
 
+## Summary
+
+ * Aim for an embedded *Hello World* in your FPGA board this week
+   * With some real code that is blinking an LED
+   * Only 4 instructions are needed
+ * A processor is realtively easy to test just with programs
+   * Get at least on simple test running (with result 0 in `x1`)
+ * Other tests: known result in a register on an ecall
+ * Cosimulation with a golden model (your CAE simulator)  
+
 ## Peripherals
 
 - Two basic memory mapped peripherals are provided
-  - UART transceiver
   - LED controller
+  - UART transceiver
 - The peripherals are attached to a simple bus
 
 ### System Bus
@@ -271,7 +370,7 @@ See the `Makefile` for the hardware and test targets.
 | `wrData`| 32    | data to write                                          |
 | `rdData`| 32    | result of read (valid one cycle after `read` is asserted) |
 
-Use `Bus.RequestPort()` and `Bus.ResponsePort()` to create IO.
+Use `Bus.RequestPort()` and `Bus.ResponsePort()` to create the IO Bundle
 
 ### LED Controller - Register Map
 
@@ -301,6 +400,14 @@ Use `Bus.RequestPort()` and `Bus.ResponsePort()` to create IO.
 - Only the `read` and `write` signals of the appropriate device are asserted
 - The routing decision has to be remembered to select the correct response
 
+## Bootloader
+
+ * The bootloader is a small program that is loaded into the instruction memory
+ * It can then itself load a program into the instruction and data memory
+ * This avoids resynthesizing the FPGA for each new program
+ * The bootloader can be written in C
+ * It communicates with the host computer via the serial port
+  * You need a program on the host computer to send the program to the bootloader running on your RISC-V processor
 
 ## Using elf Executables
 
