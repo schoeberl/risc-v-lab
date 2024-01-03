@@ -207,20 +207,30 @@ See the `Makefile` for the hardware and test targets.
  * Competiton: smallest and fastest implementation
  * Explore myself different pipeline organizations
 
-## Testing
+## Testing I
 
-- Two collections of test programs are provided
+- Three collections of test programs are provided
   - `tests/simple` contains some basic test cases for all RV32I instructions
     - The ones from the CAE course
-  - `tests/riscv-tests` contains thorough tests for all RV32I instructions from the official [riscv-tests](https://github.com/riscv-software-src/riscv-tests) repository
+  - `tests/ripes` contains some longer self-tests for most RV32I instructions
+  - `tests/riscv-tests` contains thorough self-tests for all RV32I instructions from the official [riscv-tests](https://github.com/riscv-software-src/riscv-tests) repository
+  
+## Testing II
+
   - The test programs exit via the `ecall` instruction
-  - All tests come with a `.res` file containing a dump of the register file after the program has finished
+  - `simple` and `riscv-tests` tests come with a `.res` file containing a dump of the register file after the program has finished
 
 ### Building the Tests
 
 - Elf files and flat binaries are built before `sbt test` when running `make test`
-- The output files are placed in the `build/simple` and `build/riscv-tests` directories
+- The output files are placed in the `build/simple`, `build/ripes` and `build/riscv-tests` directories
 - Set the `CC` variable to your RISC-V GCC compiler in the [Makefile](Makefile?plain=1#L7)
+
+### Ripes tests
+
+- The ripes tests finish with a system call
+  - the argument register `a7` is set to `93`
+  - if the test was passed, `a0` is set to `42` else to `0`
 
 ### riscv-tests
 

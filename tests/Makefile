@@ -1,8 +1,8 @@
-OUTDIR=../build
+OUTDIR?=../build
 
-CC=riscv64-unknown-elf
+CC?=riscv32-unknown-elf
 
-all: riscv-tests simple
+all: riscv-tests simple ripes
 
 riscv-tests:
 	@mkdir -p $(OUTDIR)/riscv-tests
@@ -16,4 +16,10 @@ simple:
 	$(MAKE) OUTDIR=../$(OUTDIR)/simple CC=$(CC) -C simple
 	@echo "Done."
 
-.PHONY: riscv-tests simple
+ripes:
+	@mkdir -p $(OUTDIR)/ripes
+	@echo "Compiling ripes tests..."
+	$(MAKE) OUTDIR=../$(OUTDIR)/ripes CC=$(CC) -C ripes
+	@echo "Done."
+
+.PHONY: riscv-tests simple ripes

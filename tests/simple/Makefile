@@ -1,4 +1,4 @@
-OUTDIR=.
+OUTDIR?=.
 
 ASRCS:=$(wildcard *.s)
 CSRCS:=$(wildcard *.c)
@@ -6,7 +6,7 @@ AOBJ:=$(ASRCS:%.s=$(OUTDIR)/%.out)
 COBJ:=$(CSRCS:%.c=$(OUTDIR)/%.out)
 BINS:=$(AOBJ:%.out=%.bin) $(COBJ:%.out=%.bin)
 
-CC=riscv64-unknown-elf
+CC?=riscv32-unknown-elf
 
 all: ${AOBJ} ${COBJ} ${BINS}
 
@@ -19,7 +19,5 @@ $(OUTDIR)/%.out: %.s
 $(OUTDIR)/%.bin: $(OUTDIR)/%.out
 	$(CC)-objcopy -O binary $< $@
 
-dump: ${AOBJ} ${COBJ}
-	$(CC)-objdump -d $(AOBJ) $(COBJ)
 clean:
 	@rm $(OUTDIR)/*.bin $(OUTDIR)/*.out
