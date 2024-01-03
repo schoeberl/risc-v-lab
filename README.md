@@ -100,6 +100,7 @@ See the `Makefile` for the hardware and test targets.
    * Demo in FPGA board
  * Show me your code
  * No report needed
+   * Just one with names, title, abstract, and a link to your repo
 
 ## Competition
 
