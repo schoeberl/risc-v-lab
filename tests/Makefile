@@ -1,6 +1,5 @@
-OUTDIR?=../build
-
-CC?=riscv32-unknown-elf
+OUTDIR=../build
+CC=riscv64-unknown-elf
 
 all: riscv-tests simple ripes
 
@@ -21,5 +20,8 @@ ripes:
 	@echo "Compiling ripes tests..."
 	$(MAKE) OUTDIR=../$(OUTDIR)/ripes CC=$(CC) -C ripes
 	@echo "Done."
+
+dump: ${AOBJ} ${COBJ}
+	$(CC)-objdump -d $(AOBJ) $(COBJ)
 
 .PHONY: riscv-tests simple ripes

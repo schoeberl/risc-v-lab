@@ -1,10 +1,10 @@
-OUTDIR?=.
+OUTDIR=.
+CC=riscv64-unknown-elf
 
 SRCS:=$(wildcard *.s)
 OBJ:=$(SRCS:%.s=$(OUTDIR)/%.out)
 BINS:=$(OBJ:%.out=%.bin)
 
-CC?=riscv32-unknown-elf
 
 all: ${OBJ} ${BINS}
 
