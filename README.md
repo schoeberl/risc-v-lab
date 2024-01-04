@@ -349,9 +349,20 @@ addi x1, x1, -0x333
    * With some real code that is blinking an LED
    * Only 4 instructions are needed
  * A processor is realtively easy to test just with programs
-   * Get at least on simple test running (with result 0 in `x1`)
+   * Just execute a program and check the result
+   * Get at least on simple test running this week (result 0 in `x1`)
  * Other tests: known result in a register on an ecall
- * Cosimulation with a golden model (your CAE simulator)  
+ * Cosimulation with a golden model (your CAE simulator)
+
+## More Tips
+
+ * Don't take the book literally
+ * Don't take Ripes literally
+ * The book contains errors
+ * Ripes contains not the best drawings
+ * Get the ideas and build y9our own
+ * Use Bundeles (Chisel) or Records (VHDL) to group signals
+ * Use enumerations instead of magic numbers
 
 ## Peripherals
 
