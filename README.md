@@ -281,7 +281,7 @@ addi x1, x1, -0x333
 
  * From riscv-tests
  * From Ripes
-   * Both use ecall to signal a result
+   * Both use exit ecall to signal a result
  * From CAE
    * You know them
    * No siganlling of a result
@@ -307,7 +307,10 @@ addi x1, x1, -0x333
   
 ## Given Tests - II
 
-  - The test programs exit via the `ecall` instruction
+  - The test programs exit via the unix exit system call (exit code 93 in `a7`) using the `ecall` instruction
+  - The exit code can be found in the `a0` register
+  - A `0` exit code means that the test finished successfully
+  - A non-zero exit code means the test failed
   - `simple` and `riscv-tests` tests come with a `.res` file containing a dump of the register file after the program has finished
 
 ### Building the Tests
@@ -316,17 +319,11 @@ addi x1, x1, -0x333
 - The output files are placed in the `build/simple`, `build/ripes` and `build/riscv-tests` directories
 - Set the `CC` variable to your RISC-V GCC compiler in the [Makefile](Makefile?plain=1#L7)
 
-### Ripes tests
-
-- The ripes tests finish with a system call
-  - the argument register `a7` is set to `93`
-  - if the test was passed, `a0` is set to `42` else to `0`
-
 ### riscv-tests
 
 - the `riscv-tests` are self tests which check results inside the test code
-  - the test returns 0 in register `a7` if the test was successful
-  - else the failing tests number is placed in `a7`
+  - the test terminates with a exit system call
+  - if one of the test cases failed, its number is placed in `a0` (1-indexed)
   - the self testing functionality relies on compare and branch instructions
 
 ### riscv-tests - Execution Traces - I
