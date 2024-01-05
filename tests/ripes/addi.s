@@ -132,11 +132,9 @@ test_25:
  li gp, 25
  bne x0, x29, fail
 
-pass:
- li a0, 42
+pass: li a0, 0
  li a7, 93
  ecall
 
-fail:
- li a0, 0
+fail: li a0, 1
  li a7, 93

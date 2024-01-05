@@ -127,7 +127,7 @@
 
   test_24: li gp, 24; li x1, 1; bge x1, x0, 1f; addi x1, x1, 1; addi x1, x1, 1; addi x1, x1, 1; addi x1, x1, 1; 1: addi x1, x1, 1; addi x1, x1, 1;; li x7, ((3) & ((1 << (32 - 1) << 1) - 1)); bne x1, x7, fail;
 # 67 "isa/rv32ui/../rv64ui/bge.S"
-  bne x0, gp, pass; fail: mv a7, gp; ecall;; pass: li a7, 0; ecall;
+  bne x0, gp, pass; fail: mv a0, gp; li a7, 93; ecall;; pass: li a0, 0; li a7, 93; ecall;
 
 
 

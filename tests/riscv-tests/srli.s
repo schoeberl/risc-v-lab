@@ -131,7 +131,7 @@
   test_24: li gp, 24; srli x1, x0, ((4) | (-(((4) >> 11) & 1) << 11));; li x7, ((0) & ((1 << (32 - 1) << 1) - 1)); bne x1, x7, fail;;
   test_25: li gp, 25; li x1, ((33) & ((1 << (32 - 1) << 1) - 1)); srli x0, x1, ((10) | (-(((10) >> 11) & 1) << 11));; li x7, ((0) & ((1 << (32 - 1) << 1) - 1)); bne x0, x7, fail;;
 
-  bne x0, gp, pass; fail: mv a7, gp; ecall;; pass: li a7, 0; ecall;
+  bne x0, gp, pass; fail: mv a0, gp; li a7, 93; ecall;; pass: li a0, 0; li a7, 93; ecall;
 
 
 

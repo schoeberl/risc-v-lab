@@ -130,7 +130,7 @@
   test_24: li gp, 24; sltiu x1, x0, ((0xfff) | (-(((0xfff) >> 11) & 1) << 11));; li x7, ((1) & ((1 << (32 - 1) << 1) - 1)); bne x1, x7, fail;;
   test_25: li gp, 25; li x1, ((0x00ff00ff) & ((1 << (32 - 1) << 1) - 1)); sltiu x0, x1, ((0xfff) | (-(((0xfff) >> 11) & 1) << 11));; li x7, ((0) & ((1 << (32 - 1) << 1) - 1)); bne x0, x7, fail;;
 
-  bne x0, gp, pass; fail: mv a7, gp; ecall;; pass: li a7, 0; ecall;
+  bne x0, gp, pass; fail: mv a0, gp; li a7, 93; ecall;; pass: li a0, 0; li a7, 93; ecall;
 
 
 
