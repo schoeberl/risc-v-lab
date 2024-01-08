@@ -353,14 +353,19 @@ addi x1, x1, -0x333
 
 ## More Tips
 
- * Don't take the book literally
+ * Don't take the CAE book literally
  * Don't take Ripes literally
  * The book contains errors
  * Ripes contains not the best drawings
  * Get the ideas and build your own version
- * Use Bundels (Chisel) or Records (VHDL) to group signals
+ * Use Bundels (Chisel) or records (VHDL) to group signals
  * Use enumerations instead of magic numbers
    * E.g., `op_add` instead of 123
+
+## Repeat
+
+ * Memory and Bus from DE2
+ * http://www2.imm.dtu.dk/courses/02139/11_interface.pdf
 
 ## Peripherals
 
@@ -418,6 +423,16 @@ Use `Bus.RequestPort()` and `Bus.ResponsePort()` to create the IO Bundle
  * It communicates with the host computer via the serial port
   * You need a program on the host computer to send the program to the bootloader running on your RISC-V processor
 
+## Bootloader Simplified
+
+ * Use a state machine to
+  * Receive a program from the host computer via the serial port
+  * Write it into the instruction memory
+  * Start the program
+* Have a Java/Scala program to send the program
+  * Byte by byte
+  * Use a magic number to mark the end of the byte stream
+  
 ## Using elf Executables
 
 - Use the `lib.Executable` class to load an elf file and extract sections and the entry address
@@ -430,3 +445,11 @@ text.start // start address of the section
 exe.getEntryPoint // returns the start PC of the program
 ```
 
+- See the `build.sbt` how to add this library to your project
+
+## Summary
+
+ * IO devices are memory mapped
+   * Just use `lw` and `sw` to access them
+ * We provide a serial port and a LED controller
+ * Any more material that I should prepare?
