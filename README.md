@@ -357,9 +357,10 @@ addi x1, x1, -0x333
  * Don't take Ripes literally
  * The book contains errors
  * Ripes contains not the best drawings
- * Get the ideas and build y9our own
- * Use Bundeles (Chisel) or Records (VHDL) to group signals
+ * Get the ideas and build your own version
+ * Use Bundels (Chisel) or Records (VHDL) to group signals
  * Use enumerations instead of magic numbers
+   * E.g., `op_add` instead of 123
 
 ## Peripherals
 
