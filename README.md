@@ -99,9 +99,19 @@ See the `Makefile` for the hardware and test targets.
    * A few slides
    * Demo in your FPGA board
  * Show me your code
- * No report needed
-   * Just one page with names, title, abstract, and a link to your repo
-   * Maybe your processsor has a name?
+ * Only and abstract needed
+ * Maybe your processsor has a name?
+
+## Abstract
+
+ * The abstract shall contain:
+   * Title
+   * Names of the group members
+   * Abstract
+   * Block diagram
+   * Link to your repo
+ * The abstract shall be in PDF
+ * Send it to me latest on Thrusday evening
 
 ## Competition
 
@@ -358,7 +368,14 @@ addi x1, x1, -0x333
  * The book contains errors
  * Ripes contains not the best drawings
  * Get the ideas and build your own version
- * Use Bundels (Chisel) or records (VHDL) to group signals
+
+## More Tips II
+
+* Draw a block diagram
+  * Shall also be part of your abstract/presentation
+  * Rules change slightly
+    * See Exam slides
+* Use Bundels (Chisel) or records (VHDL) to group signals
  * Use enumerations instead of magic numbers
    * E.g., `op_add` instead of 123
 
