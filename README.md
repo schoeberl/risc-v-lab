@@ -470,3 +470,11 @@ exe.getEntryPoint // returns the start PC of the program
    * Just use `lw` and `sw` to access them
  * We provide a serial port and a LED controller
  * Any more material that I should prepare?
+
+## Suggestions for Improvement of the Next Iteration
+
+ * Timing diagram for IO
+ * Make sure IO is done in SW (link to Ripes)
+ * Simplify the connection of the IO devices
+ * Look into evaluation of the course
+ * Explain the UART and the memory mapped IO
