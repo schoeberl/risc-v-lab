@@ -285,6 +285,8 @@ addi x1, x1, -0x333
 ```
 
  * Shall finish with `0` in x1
+   * However, `0` as a result is not the best choice
+   * It might signal OK, when the register is just `0` after a reset
  * Write your tests in Venus and *test the tests* on Venus
 
 ## Available Tests
@@ -305,7 +307,7 @@ addi x1, x1, -0x333
  * Compare the results
  * You can use the execution trace to compare the results
  * Or run it in lockstep
- * Or use the traces Tjark provided
+ * Or use the traces Tjark provided (last instructions are not valid anymore dues to result change)
 
 ## Given Tests
 
@@ -319,9 +321,10 @@ addi x1, x1, -0x333
 
   - The test programs exit via the unix exit system call (exit code 93 in `a7`) using the `ecall` instruction
   - The exit code can be found in the `a0` register
-  - A `0` exit code means that the test finished successfully
-  - A non-zero exit code means the test failed
-  - `simple` and `riscv-tests` tests come with a `.res` file containing a dump of the register file after the program has finished
+  - A `1` exit code means that the test finished successfully
+  - A non-one exit code means the test failed
+  - `simple` and `riscv-tests` tests come with a `.res` file containing a dump of the register file after the program
+     has finished (again exit register changed)
 
 ### Building the Tests
 
@@ -349,15 +352,16 @@ addi x1, x1, -0x333
 
 - The execution traces can be used to check the correct execution of the programs step by step, like in a co-simulation
 - Attention has to be given to stalls in your pipeline, since the trace was executed on a single-cycle processor
+  - TODO: traces should be fixed (or removed)
 
 ## Summary
 
  * Aim for an embedded *Hello World* in your FPGA board this week
    * With some real code that is blinking an LED
    * Only 4 instructions are needed
- * A processor is realtively easy to test just with programs
+ * A processor is relatively easy to test just with programs
    * Just execute a program and check the result
-   * Get at least on simple test running this week (result 0 in `x1`)
+   * Get at least on simple test running this week (result 1 in `x1`)
  * Other tests: known result in a register on an ecall
  * Cosimulation with a golden model (your CAE simulator)
 

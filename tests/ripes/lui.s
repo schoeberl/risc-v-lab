@@ -42,11 +42,11 @@ test_6:
  li gp, 6
  bne x0, x29, fail
 
-pass: li a0, 0
+pass: li a0, 1
  li a7, 93
  ecall
 
-fail: li a0, 1
+fail: li a0, 2
  li a7, 93
  ecall
 
