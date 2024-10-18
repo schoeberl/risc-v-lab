@@ -110,7 +110,7 @@ target_2:
 
   test_3: li gp, 3; li ra, 1; jal x0, 1f; addi ra, ra, 1; addi ra, ra, 1; addi ra, ra, 1; addi ra, ra, 1; 1: addi ra, ra, 1; addi ra, ra, 1;; li x7, ((3) & ((1 << (32 - 1) << 1) - 1)); bne ra, x7, fail;
 # 50 "isa/rv32ui/../rv64ui/jal.S"
-  bne x0, gp, pass; fail: mv a0, gp; li a7, 93; ecall;; pass: li a0, 0; li a7, 93; ecall;
+  bne x0, gp, pass; fail: mv a0, gp; li a7, 93; ecall;; pass: li a0, 1; li a7, 93; ecall;
 
 
 
