@@ -40,10 +40,10 @@ test_4:
   li t3, 133
   bne t2, t3, fail
 
-pass: li a0, 1
+pass: li a0, 0
 	li a7, 93
 	ecall
-fail: li a0, 2
+fail: li a0, 1
 	li a7, 93
 	ecall
 
