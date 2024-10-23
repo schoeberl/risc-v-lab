@@ -96,7 +96,7 @@
 
   test_6: li gp, 6; lui x0, 0x80000; li x7, ((0) & ((1 << (32 - 1) << 1) - 1)); bne x0, x7, fail;;
 
-  bne x0, gp, pass; fail: mv a0, gp; li a7, 93; ecall;; pass: li a0, 1; li a7, 93; ecall;
+  bne x0, gp, pass; fail: mv a0, gp; li a7, 93; ecall;; pass: li a0, 0; li a7, 93; ecall;
 
 
 
