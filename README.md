@@ -75,10 +75,6 @@ At each meeting, you should be prepared to present your current progress, demons
 
 The exact times and group schedule for these review meetings will be announced on DTU-Learn.
 
-### Installing tools
-You will use your own laptop for developing the project. 
-Tools need to be installed to carry out hardware development. If you attended the course Digital Electronics 2, you likely already have the tools installed. Otherwise, you can follow the instruction given for the course Digital Electronics 2 page: [02139 Digital Electronics 2](https://github.com/schoeberl/risc-v-lab). Specifically, the Setup.md file contains detailed instructions: [Setup.md](https://github.com/schoeberl/chisel-lab/blob/master/Setup.md).
-
 ### Exam and deliverables
 We will have the exam of the course on **Friday, January 24th, 2025** (the last day of the 3-week period).
 
@@ -106,6 +102,10 @@ In addition, you are expected to hand-in the following deliverables:
 All deliverables must be submitted via the DTU-Learn course assignment page at the following location: `DTU-Learn/Course content/Assignments/Short report`.
 
 The deadline for the hand-in is **Thursday, January 23rd, 2025** at **midday**.
+
+### Installing tools
+You will use your own laptop for developing the project. 
+Tools need to be installed to carry out hardware development. If you attended the course Digital Electronics 2, you likely already have the tools installed. Otherwise, you can follow the instruction given for the course Digital Electronics 2 page: [02139 Digital Electronics 2](https://github.com/schoeberl/risc-v-lab). Specifically, the Setup.md file contains detailed instructions: [Setup.md](https://github.com/schoeberl/chisel-lab/blob/master/Setup.md).
 
 ### FPGA board
 If you have your own FPGA board, you are expected to use it in this course. If you do not have a board, you can borrow one of DTU's board for the duration of the course. Ask the teacher if you need to borrow a board.
