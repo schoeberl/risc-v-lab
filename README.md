@@ -384,7 +384,7 @@ Use debugging tools and techniques to get things working during the early stages
 - Advanced: Regression testing
 - Advanced: GitHub CI on commit
 
-### What to Test?
+### What to test?
 - Focus on testing individual components first, such as:
   - ALU
   - Decode Stage
@@ -404,7 +404,7 @@ Use debugging tools and techniques to get things working during the early stages
   - Self-testing programs
   - Cosimulation
 
-### Self-Testing Programs
+### Self-testing programs
 
 - Write your test programs with a known result
 - E.g., agree that all your tests will signal a pass with 0 in x1
@@ -427,7 +427,7 @@ addi x1, x1, -0x333
 - Shall finish with `0` in x1
 - Write your tests in Venus and *test the tests* on Venus
 
-### Available Tests
+### Available tests
 
 - From riscv-tests
 - From Ripes
@@ -447,7 +447,7 @@ addi x1, x1, -0x333
 - Or run it in lockstep
 - Or use the traces provided
 
-### Given Tests
+### Given tests
 
 - Three collections of test programs are provided
  - `tests/simple` contains some basic test cases for all RV32I instructions
@@ -460,7 +460,7 @@ addi x1, x1, -0x333
  - A non-zero exit code means the test failed
  - `simple` and `riscv-tests` tests come with a `.res` file containing a dump of the register file after the program has finished
 
-### Building the Tests (advanced)
+### Building the tests (advanced)
 
 - Elf files and flat binaries are built before `sbt test` when running `make test`
 - The output files are placed in the `build/simple`, `build/ripes` and `build/riscv-tests` directories
@@ -473,7 +473,7 @@ addi x1, x1, -0x333
   - if one of the test cases fails, its number is placed in `a0` (1-indexed)
   - the self-testing functionality relies on compare and branch instructions
 
-### The riscv-tests - Execution Traces (advanced)
+### The riscv-tests - Execution traces (advanced)
 
 - Each riscv-test program also comes with a `.csv` file containing an execution trace
 - One line contains the following information:
