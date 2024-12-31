@@ -75,6 +75,10 @@ At each meeting, you should be prepared to present your current progress, demons
 
 The exact times and group schedule for these review meetings will be announced on DTU-Learn.
 
+### Installing tools
+You will use your own laptop for developing the project. 
+Tools need to be installed to carry out hardware development. If you attended the course Digital Electronics 2, you likely already have the tools installed. Otherwise, you can follow the instruction given for the course Digital Electronics 2 page: [02139 Digital Electronics 2](https://github.com/schoeberl/risc-v-lab). Specifically, the Setup.md file contains detailed instructions: [Setup.md](https://github.com/schoeberl/chisel-lab/blob/master/Setup.md).
+
 ### Exam and deliverables
 We will have the exam of the course on **Friday, January 24th, 2025** (the last day of the 3-week period).
 
@@ -144,6 +148,7 @@ Here you can find some requirements for your design. Please read them **carefull
 ### Useful links
 
 - The lab material for the CAE course at DTU: [02155 Computer Architecture and Engineering Lab](https://github.com/schoeberl/cae-lab)
+- Material and installation instruction for the Digital Electronics 2 course at DTU: [02139 Digital Electronics 2](https://github.com/schoeberl/risc-v-lab)
 - [The RISC-V Instruction Set Manual](https://riscv.org/specifications/)
 - [Venus RV32I simulator](https://kvakil.github.io/venus/)
 - [RIPES RISC-V simulator](https://github.com/mortbopet/Ripes)
