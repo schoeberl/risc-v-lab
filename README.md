@@ -269,7 +269,12 @@ Incorporate memory operations into your pipeline:
 ### Writeback stage
 - Implement the writeback stage
 - Do we need a writeback stage?
-- Let's discuss pipeline variations
+
+### About the 5-stage implementation
+- See a possible 3-stage pipeline variation (wildcat by Martin Schoeberl):
+  - [Paper](https://woset-workshop.github.io/PDFs/2024/9_The_Educational_RISC_V_Micro.pdf)
+  - [Video presentation](https://woset-workshop.github.io/Videos/2024/9_The_Educational_RISC_V_Micro.mp4)
+  - [GitHub repository](https://github.com/schoeberl/wildcat)
 
  Complete the pipeline with the writeback stage:
 - Implement logic to write results back to the register file.

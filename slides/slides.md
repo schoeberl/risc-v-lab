@@ -318,6 +318,13 @@ To integrate multiple peripherals into your system:
   - Is a separate writeback stage needed?
 - Validate the full pipeline with end-to-end instruction tests
 
+## About the 5-stage implementation
+- Do we need a writeback stage?
+- See a possible 3-stage pipeline variation (wildcat by Martin Schoeberl):
+  - [Paper](https://woset-workshop.github.io/PDFs/2024/9_The_Educational_RISC_V_Micro.pdf)
+  - [Video presentation](https://woset-workshop.github.io/Videos/2024/9_The_Educational_RISC_V_Micro.mp4)
+  - [GitHub repository](https://github.com/schoeberl/wildcat)
+
 ## Start with a single instruction
 
 - Begin with a single instruction, e.g., **`addi`**:
