@@ -468,7 +468,7 @@ addi x1, x1, -0x333
 
 - **For details, refer to the course manual**
 
-# More advanced notes
+# <br><br>More advanced notes
 
 ## Bootloader 
 - Simplifies program loading via serial port
