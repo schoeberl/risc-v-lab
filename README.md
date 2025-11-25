@@ -2,8 +2,13 @@
 
 This repository contains the material for the 3-week course **02114 - Design of a RISC-V Microprocessor** at the Technical University of Denmark (DTU).
 
-This README file contains all the information related to the course. **Important note: Before starting with the design and implementation (i.e. coding), please read this document top-to-bottom, so you know the overall requirements, expectations, and suggestions.**
+This README file contains all the information related to the course.
 
+TODO:
+ * cleanup slides (check version from last year)
+   - why do we have a README and slides?
+  * Add link to Chattutor
+  
 Content:
 * [General course information](#general-course-information)
 * [Your RISC-V microprocessor](#your-risc-v-microprocessor)
