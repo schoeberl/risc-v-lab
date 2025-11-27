@@ -8,6 +8,7 @@ TODO:
  * cleanup slides (check version from last year)
    - why do we have a README and slides?
   * Add link to Chattutor
+  * Update CI as sbt is failing to load
   
 Content:
 * [General course information](#general-course-information)
