@@ -1,3 +1,28 @@
+---
+marp: true
+theme: gaia
+_class: lead
+paginate: true
+backgroundColor: #fff
+backgroundImage: url('https://marp.app/assets/hero-background.svg')
+---
+
+<!-- headingDivider: 3 -->
+
+# Welcome to 02114 <br> Design of a RISC-V Microprocessor
+by Martin Schoeberl
+
+January 2026
+<br><br>
+Technical University of Denmark (DTU)
+
+# Welcome!
+
+- 3-week intensive course
+- Hands-on hardware design
+
+- The course manual and material is on the Gibhub repository at [https://github.com/schoeberl/risc-v-lab](https://github.com/schoeberl/risc-v-lab)
+
 # **02114 - Design of a RISC-V Microprocessor**
 
 This repository contains the material for the 3-week course **02114 - Design of a RISC-V Microprocessor** at the Technical University of Denmark (DTU).
