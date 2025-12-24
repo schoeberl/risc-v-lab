@@ -436,6 +436,11 @@ addi x1, x1, -0x333
 
 Use `Bus.RequestPort()` and `Bus.ResponsePort()` to create the IO Bundle
 
+
+## System Bus Timing
+
+![width:850](images/bus_timing.jpg)
+
 ### LED Controller - Register Map
 
 | address | read                           | write                           |
