@@ -21,6 +21,8 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
+    - name: Setup sbt
+      uses: sbt/setup-sbt@v1
     - name: Run tests
       run: sbt test
     - name: Generate verilog
