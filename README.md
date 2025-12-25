@@ -23,23 +23,6 @@ Monday 5th of January 2023 at 10:00.
 
 See the `Makefile` for the hardware and test targets.
 
-
-## TODO:
- * cleanup slides (check version from last year)
-   - why do we have a README and slides?
-   - check and then remove redundant material
-  * Add link to Chattutor
-  * Update CI as sbt is failing to load
-  * Show Wildcat 3-stage pipeline
-
-## Suggestions for Improvement of the Next Iteration
-
- * Timing diagram for IO
- * Make sure IO is done in SW (link to Ripes)
- * Simplify the connection of the IO devices
- * Look into evaluation of the course
- * Explain the UART and the memory mapped IO
-
 ## Welcome
 
  * Build your **own** RISC-V microprocessor
