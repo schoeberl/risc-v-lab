@@ -8,7 +8,7 @@ test:
 	sbt test
 
 slides:
-	marp --pdf README.md
+	marp --allow-local-files --pdf README.md
 	open README.pdf
 
 clean:

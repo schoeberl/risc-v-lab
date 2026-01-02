@@ -27,13 +27,22 @@ See the `Makefile` for the hardware and test targets.
 
  * Build your **own** RISC-V microprocessor
  * Run **your** processor in your Basys3 board
- * This is a new 3 weeks course
+ * This is a (relatively) new 3 weeks course
  * I am exciting to see you building a RISC-V processor
 
 ## Introduction Round
 
  * Who are you?
  * Why this course?
+
+## Prerequisites
+
+ * Basic digital design knowledge
+   * What is your HW design background?
+   * Which language did you learn?
+ * Basic knowledge of RISC-V ISA
+   * What you did in CAE (02155)
+ * Basic Knowledge of Pipelining (again from CAE)
 
 ## Rules
 
@@ -80,6 +89,13 @@ See the `Makefile` for the hardware and test targets.
    * Forwarding has higher performance
  * Start testing and integration at day 1
 
+### Off Topic
+
+ * Why is no one of you taking Introduction to Chip Design (02118)?
+   * We will do a real tapeout in spring
+   * You can still sign up
+     * Last day to signup it today
+
 ### Pipeline Repetition
 
  * See CAE slides
@@ -87,13 +103,18 @@ See the `Makefile` for the hardware and test targets.
 ## Organisation
 
  * We will meet in the first week every day at 10:00
+ * This is group work
+   * Up to 5 students
+   * Form your groups now (sign up in DTU Learn)
+
+## Organisation II
+
  * Status presentation on Friday (13:00)
    * Each group presents
    * Two slides
    * Send me a link to your repo latest Thursday evening
- * I am online available during the week (email, slack, zoom)
-   * Can we agree on a Slack channel?
-   * DE2 from last year?
+ * I am online available during the week (email, Discord, zoom)
+   * Please join the Discord server
 
 ## Exam
 
@@ -102,7 +123,7 @@ See the `Makefile` for the hardware and test targets.
    * A few slides
    * Demo in your FPGA board
  * Show me your code
- * Only and abstract needed
+ * Only an abstract needed
  * Maybe your processsor has a name?
 
 ## Abstract
@@ -173,18 +194,23 @@ See the `Makefile` for the hardware and test targets.
  * Show it live
  * However, it is easier to use `gcc` (or `as`)
 
+## Summary So Far
+
+ * Build your own processor from scratch
+   * How cool is that ;-)
+ * Start small and implement a single instruction
+   * Today?
+ * Write a test
+ * I am online and close by
+   * Just shoot a Discord message
+
 ## Pipelining
 
-### About the 5-stage implementation
-- See a possible 3-stage pipeline variation (wildcat by Martin Schoeberl):
-  - [Paper](https://woset-workshop.github.io/PDFs/2024/9_The_Educational_RISC_V_Micro.pdf)
-  - [Video presentation](https://woset-workshop.github.io/Videos/2024/9_The_Educational_RISC_V_Micro.mp4)
-  - [GitHub repository](https://github.com/schoeberl/wildcat)
+ * Let us discuss the *classic* pipieline
 
- Complete the pipeline with the writeback stage:
-- Implement logic to write results back to the register file.
-- Feel free to explore **pipeline variations** to decide if a separate writeback stage is actually needed.
-- Validate the full pipeline functionality by running instructions end-to-end.
+### Fetch Stage
+
+ * We discussed yesterday
 
 ### Decode Stage
 
@@ -212,6 +238,19 @@ See the `Makefile` for the hardware and test targets.
  * Do we need a writeback stage?
  * Let us discuss pipeline variations (now)
 
+### Alternative Pipeline Organization
+
+* Show my slides
+- See a possible 3-stage pipeline variation (wildcat by Martin Schoeberl):
+  - [Paper](https://woset-workshop.github.io/PDFs/2024/9_The_Educational_RISC_V_Micro.pdf)
+  - [Video presentation](https://woset-workshop.github.io/Videos/2024/9_The_Educational_RISC_V_Micro.mp4)
+  - [GitHub repository](https://github.com/schoeberl/wildcat)
+
+ Complete the pipeline with the writeback stage:
+- Implement logic to write results back to the register file.
+- Feel free to explore **pipeline variations** to decide if a separate writeback stage is actually needed.
+- Validate the full pipeline functionality by running instructions end-to-end.
+
 ## Summary
 
  * Do small steps and test
@@ -230,7 +269,7 @@ See the `Makefile` for the hardware and test targets.
 
  * Blinking LED is the embedded version of "Hello World"
    * If you can blink an LED, you can do everything
- * You need `bge` and `sw` for that, besides `addi` and `nop`
+ * You need `bge` and `sw` for that, besides `addi`
    * **That's it**
    * Can you write the code for this?
  * I showed once a blinking LED at the first review meeting of an EU project!
