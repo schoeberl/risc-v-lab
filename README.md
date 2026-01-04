@@ -19,7 +19,7 @@ This repo is the website for the 3 weeks course at DTU on
 designing a RISC-V microprocessor, containing lab material. 
 
 The course will be in building 324, room 070 and will start on
-Monday 5th of January 2023 at 10:00.
+Monday 5th of January 2026 at 10:00.
 
 See the `Makefile` for the hardware and test targets.
 
