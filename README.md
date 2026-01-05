@@ -56,7 +56,7 @@ See the `Makefile` for the hardware and test targets.
 
 ## Warning
 
- * This is still a course under development
+ * This is a course still under development
  * I will use agile teaching to adapt the course as we go along
  * I will try to fix problems as fast as possible
  * I will add more material as we go along
@@ -113,7 +113,7 @@ See the `Makefile` for the hardware and test targets.
    * Each group presents
    * Two slides
    * Send me a link to your repo latest Thursday evening
- * I am online available during the week (email, Discord, zoom)
+ * I am online available during the week (Discord, email, Zoom)
    * Please join the Discord server
 
 ## Exam
@@ -135,7 +135,7 @@ See the `Makefile` for the hardware and test targets.
    * Block diagram
    * Link to your repo
  * The abstract shall be in PDF
- * Send it to me latest on Thrusday evening
+ * Handin latest on Thursday afternoon
 
 ## Competition
 
@@ -174,8 +174,8 @@ See the `Makefile` for the hardware and test targets.
 
 ### A Simple Initial Program
 
-* Add the RR version of the `add` instruction and *add* a `nop` instruction.
-* Watch it in a waveform.
+* Add the RR version of the `add` instruction and *add* a `nop` instruction
+* Watch it in a waveform
 
 ```asm
 	addi	x1, x0, 0x111
@@ -189,7 +189,7 @@ See the `Makefile` for the hardware and test targets.
 
 ### Assemble that Program
 
- * You could assemble this manually and hardcode a Chisel `Vec()`.
+ * You could assemble this manually and hardcode a Chisel `Vec()`
  * You can also use Venus to assemble the program
  * Show it live
  * However, it is easier to use `gcc` (or `as`)
@@ -249,14 +249,14 @@ See the `Makefile` for the hardware and test targets.
 ### Alternative Pipeline Organization
 
 * Show my Wildcat slides
-- See a possible 3-stage pipeline variation (wildcat by Martin Schoeberl):
+* See a possible 3-stage pipeline variation (Wildcat):
   - [WOSET paper](https://woset-workshop.github.io/PDFs/2024/9_The_Educational_RISC_V_Micro.pdf) [ARCS paper](https://www.jopdesign.com/doc/wildcat-arcs.pdf)
   - [Video presentation](https://woset-workshop.github.io/Videos/2024/9_The_Educational_RISC_V_Micro.mp4)
   - [GitHub repository](https://github.com/schoeberl/wildcat)
 
 
 
-### Wildcat - A 3-Stage Pipeline
+### Wildcat 3-Stage Pipeline
 
   ![width:1150px](figures/3-stages-easy.svg)
 
@@ -332,7 +332,7 @@ See the `Makefile` for the hardware and test targets.
  * Write your test programs with a known result
  * E.g., agree that all your tests will signal a pass with 0 in x1
  * You can check this in the simulation
-   * With your ChiselTest or VHDL benchmark
+   * With your ChiselTest or Verilog testbench
 * You can build up a collection of tests
   * Do some yourself
   * Use others (provided) later
@@ -415,18 +415,7 @@ addi x1, x1, -0x333
 - The execution traces can be used to check the correct execution of the programs step by step, like in a co-simulation
 - Attention has to be given to stalls in your pipeline, since the trace was executed on a single-cycle processor
 
-## Summary
-
- * Aim for an embedded *Hello World* in your FPGA board this week
-   * With some real code that is blinking an LED
-   * Only 4 instructions are needed
- * A processor is realtively easy to test just with programs
-   * Just execute a program and check the result
-   * Get at least on simple test running this week (result 0 in `x1`)
- * Other tests: known result in a register on an ecall
- * Cosimulation with a golden model (your CAE simulator)
-
-## More Tips
+## Some Tips
 
  * Don't take the CAE book literally
  * Don't take Ripes literally
@@ -434,7 +423,7 @@ addi x1, x1, -0x333
  * Ripes contains not the best drawings
  * Get the ideas and build your own version
 
-## More Tips II
+## More Tips
 
 * Draw a block diagram
   * Shall also be part of your abstract/presentation
@@ -444,9 +433,20 @@ addi x1, x1, -0x333
  * Use enumerations instead of magic numbers
    * E.g., `op_add` instead of 123
 
-## Repeat
+## Summary
 
- * Memory and Bus from DE2
+ * Aim for an embedded *Hello World* in your FPGA board this week
+   * With some real code that is blinking an LED
+   * Only three instructions are needed
+ * A processor is realtively easy to test just with programs
+   * Just execute a program and check the result
+   * Get at least on simple test running this week (result 0 in `x1`)
+ * Other tests: known result in a register on an ecall
+ * Cosimulation with a golden model (your CAE simulator)
+
+## Interfacing Peripherals
+
+ * Repeat: Memory and Bus from DE2
  * http://www2.imm.dtu.dk/courses/02139/11_interface.pdf
 
 ## Peripherals
