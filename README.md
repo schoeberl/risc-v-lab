@@ -94,7 +94,7 @@ See the `Makefile` for the hardware and test targets.
  * Why is no one of you taking Introduction to Chip Design (02118)?
    * We will do a real tapeout in spring
    * You can still sign up
-     * Last day to signup it today
+     * Last day to signup is today
 
 ### Pipeline Repetition
 
@@ -174,7 +174,7 @@ See the `Makefile` for the hardware and test targets.
 
 ### A Simple Initial Program
 
-* Add the RR version of the `add` instruction and a `nop` instruction.
+* Add the RR version of the `add` instruction and *add* a `nop` instruction.
 * Watch it in a waveform.
 
 ```asm
@@ -208,6 +208,8 @@ See the `Makefile` for the hardware and test targets.
 
  * Let us discuss the *classic* pipieline
 
+ ![width:1150px](figures/5-stages.svg)
+
 ### Fetch Stage
 
  * We discussed yesterday
@@ -218,6 +220,7 @@ See the `Makefile` for the hardware and test targets.
  * Extract the opcode and the register numbers
  * Use a `switch` to decode the instruction
  * Add the register file
+  * When using memory, the input register is part of the pipe register
  * Write some tests
 
 ### Execute Stage
@@ -230,31 +233,38 @@ See the `Makefile` for the hardware and test targets.
 ### Memory Stage
 
   * Add the memory stage
+  * The input register of the memory is part of the pipe register
   * Implement the `lw` and `sw` instructions
   * Write some tests
 
 ### Writeback stage
 
+ * Complete the pipeline with the writeback stage:
+   * Implement logic to write results back to the register file
+   * Validate the full pipeline functionality by running instructions end-to-end
+   * Feel free to explore **pipeline variations** to decide if a separate writeback stage is actually needed
  * Do we need a writeback stage?
  * Let us discuss pipeline variations (now)
 
 ### Alternative Pipeline Organization
 
-* Show my slides
+* Show my Wildcat slides
 - See a possible 3-stage pipeline variation (wildcat by Martin Schoeberl):
-  - [Paper](https://woset-workshop.github.io/PDFs/2024/9_The_Educational_RISC_V_Micro.pdf)
+  - [WOSET paper](https://woset-workshop.github.io/PDFs/2024/9_The_Educational_RISC_V_Micro.pdf) [ARCS paper](https://www.jopdesign.com/doc/wildcat-arcs.pdf)
   - [Video presentation](https://woset-workshop.github.io/Videos/2024/9_The_Educational_RISC_V_Micro.mp4)
   - [GitHub repository](https://github.com/schoeberl/wildcat)
 
- Complete the pipeline with the writeback stage:
-- Implement logic to write results back to the register file.
-- Feel free to explore **pipeline variations** to decide if a separate writeback stage is actually needed.
-- Validate the full pipeline functionality by running instructions end-to-end.
+
+
+### Wildcat - A 3-Stage Pipeline
+
+  ![width:1150px](figures/3-stages-easy.svg)
 
 ## Summary
 
  * Do small steps and test
  * Run an instruction through the pipeline
+ * Rethink the pipeline organization
  * That's it for today from my side
  * Questions?
 
