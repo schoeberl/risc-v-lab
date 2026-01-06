@@ -76,7 +76,7 @@ See the `Makefile` for the hardware and test targets.
  * [RIPES RISC-V simulator](https://github.com/mortbopet/Ripes)
  * [RISC-V Green Card](https://www.eecs.yorku.ca/course_archive/2022-23/F/2021A/REF/RISCV-GreenCard.pdf)
  * [Rocket Chip Generator](https://github.com/freechipsproject/rocket-chip)
- * [A RISC-V tutorial](https://github.com/BrunoLevy/learn-fpga/blob/master/FemtoRV/TUTORIALS/FROM_BLINKER_TO_RISCV/README.md)
+
 
 ## Notes and Hints
 
