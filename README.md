@@ -275,6 +275,54 @@ See the `Makefile` for the hardware and test targets.
  * How many stages have you implemented (even as fake stage)?
  * Did you aim for the minum viable product (MVP)?
 
+## RISC-V Tools
+
+For assembling small examples and compiling C programs we need the full RISC-V toolchain, including a port of gcc. Install the toolchain by following the instructions below.
+
+
+### Ubuntu (Linux)
+
+Install the tools by running the following command in the terminal:
+```bash
+sudo apt-get install -y gcc-riscv64-unknown-elf
+```
+
+
+### Windows
+
+The same commands that are used for Ubuntu can be used under Windows by using the Windows Subsystem for Linux (WSL).
+
+Activate it and install Ubuntu by following the guide
+[here](https://ubuntu.com/tutorials/ubuntu-on-windows#1-overview).
+
+Now follow the instructions for Ubuntu above. 
+
+### macOS
+
+Under macOS you need a packet manager.
+[Homebrew](https://brew.sh/) is one of the popular ones.
+After installing homebrew, install the RISC-V compiler with:
+
+```bash
+brew install sbt riscv64-elf-binutils
+```
+
+## Assembling and Linking a Program
+
+Usage example to assemble a file `abc.s` into an .elf file `abc.out`:
+
+```
+riscv64-unknown-elf-as -march=rv32i -mabi=ilp32 abc.s -o abc.out
+```
+
+You can then convert the .elf file into a flat binary file `abc.bin` with:
+
+```
+riscv64-unknown-elf-objcopy -O binary abc.out abc.bin
+```
+
+Which you then can read into your instruction memory.
+
 ## When to Start with Your FPGA Board?
 
  * Blinking LED is the embedded version of "Hello World"
@@ -503,16 +551,16 @@ Use `Bus.RequestPort()` and `Bus.ResponsePort()` to create the IO Bundle
 
 ## Bootloader
 
- * The bootloader is a small program that is loaded into the instruction memory
- * It can then itself load a program into the instruction and data memory
- * This avoids resynthesizing the FPGA for each new program
- * The bootloader can be written in C
- * It communicates with the host computer via the serial port
+* The bootloader is a small program that is loaded into the instruction memory
+* It can then itself load a program into the instruction and data memory
+* This avoids resynthesizing the FPGA for each new program
+* The bootloader can be written in C
+* It communicates with the host computer via the serial port
   * You need a program on the host computer to send the program to the bootloader running on your RISC-V processor
 
 ## Bootloader Simplified
 
- * Use a state machine to
+* Use a state machine to
   * Receive a program from the host computer via the serial port
   * Write it into the instruction memory
   * Start the program
