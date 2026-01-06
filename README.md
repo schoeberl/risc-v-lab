@@ -270,7 +270,7 @@ See the `Makefile` for the hardware and test targets.
 
 ## Status Update
 
- * How is your `addi` instruction going?
+ * How is your `addi` instruction doing?
  * How many stages have you planned?
  * How many stages have you implemented (even as fake stage)?
  * Did you aim for the minum viable product (MVP)?
@@ -351,7 +351,7 @@ Which you then can read into your instruction memory.
      * Remeber agile development  
    * Regression testing
    * GitHub CI on commit
-     * Shall I show it?
+     * Shall I show it? Yes!
 
 ## What to Test?
 
@@ -475,9 +475,7 @@ addi x1, x1, -0x333
 
 * Draw a block diagram
   * Shall also be part of your abstract/presentation
-  * Rules change slightly
-    * See Exam slides
-* Use Bundels (Chisel) or records (VHDL) to group signals
+* Use Bundles (Chisel) or records (VHDL) to group signals
  * Use enumerations instead of magic numbers
    * E.g., `op_add` instead of 123
 
@@ -491,6 +489,13 @@ addi x1, x1, -0x333
    * Get at least on simple test running this week (result 0 in `x1`)
  * Other tests: known result in a register on an ecall
  * Cosimulation with a golden model (your CAE simulator)
+ * Remember Friday is the status presentation at 13:00
+
+## Tomorrow
+
+ * I have a meeting in the morning
+ * We meet at 11:00
+ * Discussing peripheral interface
 
 ## Interfacing Peripherals
 
@@ -589,4 +594,9 @@ exe.getEntryPoint // returns the start PC of the program
  * We provide a serial port and a LED controller
  * Any more material that I should prepare?
 
+## Friday Status Presentation
 
+ * Each group presents
+ * Two slides
+ * Send me a link to your repo latest today evening
+ * We start at 13:00 with the presentations
