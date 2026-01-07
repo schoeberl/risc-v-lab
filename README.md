@@ -303,7 +303,7 @@ Under macOS you need a packet manager.
 After installing homebrew, install the RISC-V compiler with:
 
 ```bash
-brew install sbt riscv64-elf-binutils
+brew install riscv64-elf-binutils
 ```
 
 ## Assembling and Linking a Program
@@ -311,7 +311,7 @@ brew install sbt riscv64-elf-binutils
 Usage example to assemble a file `abc.s` into an .elf file `abc.out`:
 
 ```
-riscv64-unknown-elf-as -march=rv32i -mabi=ilp32 abc.s -o abc.out
+riscv64-unknown-elf-as abc.s -o abc.out
 ```
 
 You can then convert the .elf file into a flat binary file `abc.bin` with:
@@ -321,6 +321,7 @@ riscv64-unknown-elf-objcopy -O binary abc.out abc.bin
 ```
 
 Which you then can read into your instruction memory.
+Show the usage now.
 
 ## When to Start with Your FPGA Board?
 
