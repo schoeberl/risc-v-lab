@@ -11,7 +11,8 @@ class StringStreamerTest extends AnyFlatSpec with ChiselScalatestTester {
 
   behavior of "String streamer"
 
-  it should "send a string" in 
+  it should "send a string" in {
+
     val message = // create message string
       Seq.fill(1000)(Random.nextPrintableChar()).mkString
 
