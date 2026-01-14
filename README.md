@@ -132,6 +132,7 @@ See the `Makefile` for the hardware and test targets.
    * Names of the group members
    * Abstract
    * Block diagram
+   * Resource usage and performance numbers
    * Link to your repo
  * The abstract shall be in PDF
  * Handin latest on Thursday afternoon
@@ -600,3 +601,61 @@ exe.getEntryPoint // returns the start PC of the program
  * Two slides
  * Send me a link to your repo latest today evening
  * We start at 13:00 with the presentations
+
+ ## Processor Performance
+
+  * How good is your design?
+  * What does *good* mean in digital design?
+  * In chip design it is called PPA
+    * Performance
+    * Power
+    * Area
+  * We focus on Performance and Area
+  * Power is difficult to measure in an FPGA
+  * Provide the numbers in your abstract
+
+## Area
+
+ * Area is the amount of resources used in the FPGA
+ * You can get this information from the synthesis report
+ * Show a report
+
+ ## Performance
+
+  * Performance is how fast your processor is
+  * Two metrics:
+    * Clock frequency
+    * Number of cycles to execute a program
+  * Clock frequency comes from the synthesis and place and route tools
+  * Number of cycles comes from simulation
+    * Count the clock cycle in the tester
+
+## Clock Frequency
+
+ * Set clock consitraints .xdc file
+   * E.g., 10 ns for 100 MHz for Basys3 board
+  * The tools will try to meet the constraints
+ * Read the timing report after place and route
+ * WNS = Worst Negative Slack
+ * Look for the *Minimum period*
+ * The clock frequency is the inverse of the minimum period
+   * E.g., 10 ns -> 100 MHz
+ * Show reports from Vivado
+
+## Competition
+
+* Fastest processor
+* Smallest processor
+  * But needs to pass all tests
+* For performance we need to agree on a benchmark
+  * Ideas for a benchmark program?
+  * Let us discuss this now
+
+## Second Friday Status Presentation
+
+ * Each group presents
+ * We start at 10:00 with the presentations
+ * Next week final presentation on Friday at 13:00
+  * Hand in your abstract on Thursday afternoon
+
+
